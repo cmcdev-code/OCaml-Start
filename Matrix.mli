@@ -1,5 +1,4 @@
 (* Abstract representation of a matrix *)
-module type MATRIX = sig
 
   (* abstract type of matrix*)
   type t
@@ -7,16 +6,17 @@ module type MATRIX = sig
   (* initialize a rows x cols matrix with default value*)
   val make: int -> int -> float -> t
 
-
   (* make n x n diagonal with default value*)
   val diag: int -> float -> t
 
+  (* scalar multiplication*)
+  val scalar_mult: t->float-> t
 
   (* number of rows*)
   val rows: t -> int
 
   (* number of columns*)
-  val columns: t -> int
+  val cols: t -> int
 
   (* returns entry in row column*)
   val get: t -> int -> int -> float
@@ -34,4 +34,4 @@ module type MATRIX = sig
   (* matrix inverse *)
   val invert: t -> t
 
-end
+  val set : t -> int -> int -> float -> unit

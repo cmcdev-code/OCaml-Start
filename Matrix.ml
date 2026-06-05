@@ -1,4 +1,3 @@
-module Matrix : MATRIX = struct
 
   type t = float array array
 
@@ -12,11 +11,22 @@ module Matrix : MATRIX = struct
       )
     )
 
+
   let rows m = Array.length m
 
   let cols m = if Array.length m = 0 then 0 else Array.length m.(0)
 
   let get m r c = m.(r).(c)
+
+  let scalar_mult m s =
+    let r = rows m in
+    let c = cols m in
+
+    Array.init r (fun i ->
+      Array.init c (fun j->
+        m.(i).(j) *. s
+      )
+    )
 
   let transpose m =
     let r = rows m in
@@ -115,4 +125,6 @@ module Matrix : MATRIX = struct
         )
       )
 
-end
+
+    let set m r c v =
+      m.(r).(c) <- v

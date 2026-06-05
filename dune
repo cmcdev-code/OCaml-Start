@@ -1,0 +1,9 @@
+(library
+ (name linear_reg)
+ (wrapped false)
+ (modules matrix ols))
+
+(test
+ (name test_matrix)
+ (modules test_matrix)
+ (libraries linear_reg alcotest))
